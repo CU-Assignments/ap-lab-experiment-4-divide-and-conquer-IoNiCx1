@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        // Initialize max_sum to the first element and current_sum to 0
+        int max_sum = nums[0];
+        int current_sum = 0;
+
+        // Iterate over each number in the array
+        for (int num : nums) {
+            // Update current_sum by either adding the current number or starting fresh
+            current_sum = max(num, current_sum + num);
+            
+            // Update max_sum to track the largest sum encountered so far
+            max_sum = max(max_sum, current_sum);
+        }
+
+        return max_sum;
+    }
+};
